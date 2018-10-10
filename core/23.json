@@ -1,27 +1,10 @@
 {
-  "id": 23,
-  "created_at": "2015-10-17",
-  "updated_at": "2016-04-21",
-  "title": "Regular Expression Denial of Service",
-  "author": {
-    "name": "Barış Soner Uşaklı",
-    "website": null,
-    "username": null
-  },
-  "module_name": "marked",
-  "publish_date": "2015-01-22",
-  "cves": [
-    "CVE-2015-8854"
+  "cve": [
+    "CVE-2016-2105"
   ],
-  "vulnerable_versions": "<=0.3.3",
-  "patched_versions": ">=0.3.4",
-  "overview": "Marked 0.3.3 and earlier is vulnerable to regular expression denial of service (ReDoS) when certain types of input are passed in to be parsed.\n\n\"The Regular expression Denial of Service (ReDoS) is a Denial of Service attack, that exploits the fact that most Regular Expression implementations may reach extreme situations that cause them to work very slowly (exponentially related to input size). An attacker can then cause a program using a Regular Expression to enter these extreme situations and then hang for a very long time.\" [1]\n\nMarked's catastrophic backtracking issue for the `em` inline rule has now been patched in 0.3.4.",
-  "recommendation": "Update to marked v0.3.4 or later.",
-  "references": [
-    "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS",
-    "https://github.com/chjj/marked/issues/497"
-  ],
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-  "cvss_score": 7.5,
-  "coordinating_vendor": "^Lift Security"
+  "vulnerable": "4.x || 5.x || 6.x",
+  "patched": "^4.4.4 || ^5.11.1 || ^6.1.0",
+  "ref": "https://nodejs.org/en/blog/vulnerability/openssl-may-2016/#cve-2016-2107-padding-oracle-in-aes-ni-cbc-mac-check",
+  "description": "EVP_EncodeUpdate overflow",
+  "overview": "An overflow can occur in the OpenSSL EVP_EncodeUpdate() function which is used\nfor Base64 encoding of binary data. An attacker must be able to supply large\namounts of input data in order to cause an overflow.\n\nNode.js uses the EVP_EncodeUpdate() internally during calls to\ncrypto.Certificate#exportPublicKey() for SPKAC Certificate Signing\nRequests. User-supplied data must be passed to this method for\napplications to be vulnerable. This method has been available since\nNode.js v0.12.\n\n"
 }

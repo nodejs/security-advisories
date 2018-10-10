@@ -1,26 +1,10 @@
 {
-  "id": 24,
-  "created_at": "2015-10-17",
-  "updated_at": "2016-04-28",
-  "title": "VBScript Content Injection",
-  "author": {
-    "name": "Xiao Long",
-    "website": null,
-    "username": null
-  },
-  "module_name": "marked",
-  "publish_date": "2015-01-22",
-  "cves": [
-    "CVE-2015-1370"
+  "cve": [
+    "CVE-2016-1669"
   ],
-  "vulnerable_versions": "<=0.3.2",
-  "patched_versions": ">=0.3.3",
-  "overview": "Marked 0.3.2 and earlier is vulnerable to content injection even when `sanitize: true` is enabled.\n\n`[xss link](vbscript:alert(1&#41;)`\n\nwill get a link\n\n`<a href=\"vbscript:alert(1)\">xss link</a>`\n\nthis script does not work in IE 11 edge mode, but works in IE 10 compatibility view.",
-  "recommendation": "Update to version 0.3.3 or greater.",
-  "references": [
-    "https://github.com/chjj/marked/issues/492"
-  ],
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
-  "cvss_score": 6.5,
-  "coordinating_vendor": "^Lift Security"
+  "vulnerable": ">=6.0.0 <6.2.0 || 5.x || 4.x",
+  "patched": "^4.4.6 || ^5.12.0",
+  "ref": "https://nodejs.org/en/blog/vulnerability/june-2016-security-releases",
+  "description": "Buffer overflow in V8",
+  "overview": "Under certain conditions, V8 may improperly expand memory allocations in the\nZone::New function. This could potentially be used to cause a Denial of Service\nvia buffer overflow or as a trigger for a remote code execution.\n\nAlthough this bug is marked as high severity in the corresponding Chromium\nrelease (50.0.2661.102), our assessment is that this is low severity for\nNode.js users due to the level of difficulty in making use of this\nvulnerability. However, users are encouraged to upgrade their Node.js\ninstallation to ensure they are properly protected.\n\n"
 }

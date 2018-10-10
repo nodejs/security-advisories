@@ -1,25 +1,10 @@
 {
-  "id": 14,
-  "created_at": "2015-10-17",
-  "updated_at": "2016-04-28",
-  "title": "Hidden Directories Always Served",
-  "author": {
-    "name": "Gil Pedersen",
-    "website": null,
-    "username": null
-  },
-  "module_name": "inert",
-  "publish_date": "2014-12-16",
-  "cves": [],
-  "vulnerable_versions": "<1.1.1",
-  "patched_versions": ">=1.1.1",
-  "overview": "The inert directory handler always allows files in hidden directories to be served, even when `showHidden` is false.",
-  "recommendation": "Update to version >= 1.1.1.",
-  "references": [
-    "https://github.com/hapijs/inert/pull/15",
-    "https://github.com/hapijs/inert/commit/e8f99f94da4cb08e8032eda984761c3f111e3e82"
+  "cve": [
+    "CVE-2016-6303"
   ],
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
-  "cvss_score": 5.3,
-  "coordinating_vendor": "^Lift Security"
+  "ref": "https://github.com/nodejs/node/pull/8714",
+  "vulnerable": "6.x || 5.x || 4.x",
+  "patched": "^6.7.0 || ^4.6.0",
+  "description": "openssl 1.0.2h vulnerabilities",
+  "overview": "An overflow can occur in MDC2_Update() under certain circumstances resulting in\nan out of bounds (OOB) error. This attack is impractical on most platforms due\nto the size of data required to trigger the OOB error.\n\nNode.js is impacted by this flaw but due to the impracticalities of exploiting\nit and the very low usage of of MDC-2, it is very low severity for Node.js\nusers.\n\n"
 }

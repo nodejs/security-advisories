@@ -1,24 +1,8 @@
 {
-  "id": 20,
-  "created_at": "2015-10-17",
-  "updated_at": "2016-04-29",
-  "title": "Potential Command Injection",
-  "author": {
-    "name": "Adam Baldwin",
-    "website": null,
-    "username": null
-  },
-  "module_name": "libnotify",
-  "publish_date": "2013-05-15",
-  "cves": [
-    "CVE-2013-7381"
-  ],
-  "vulnerable_versions": "<= 1.0.3",
-  "patched_versions": ">= 1.0.4",
-  "overview": "Untrusted input passed in the call to libnotify.notify could result in execution of shell commands. Callers may be unaware of this.\n\n### Example\n```\nvar libnotify = require('libnotify')\nlibnotify.notify('UNTRUSTED INPUT', { title: \\\"\\\" }, function () {\n    console.log(arguments);\n})\n```\n\nSpecial thanks to Neal Poole for submitting the pull request to fix this issue.",
-  "recommendation": null,
-  "references": null,
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
-  "cvss_score": 5.3,
-  "coordinating_vendor": "^Lift Security"
+  "cve": [],
+  "ref": "https://github.com/nodejs/node-private/pull/73",
+  "vulnerable": "6.x || 4.x",
+  "patched": "^6.7.0 || ^4.6.0",
+  "description": "**crypto**: don't build hardware engines (Ben Noordhuis)",
+  "overview": "This is a low severity security defect. By default, OpenSSL will load a list of\nthird-party engine modules when the ENGINE_load_builtin_engines() function is\nused. These are normally not present on a user's system. An attacker may be able\nto make Node.js load malicious code by masquerading it as one of the dynamic\nengine modules.\n\nThis defect primarily impacts Windows due to the standard DLL search paths.\nHowever, UNIX users may also be at risk with a poorly configured LD_LIBRARY_PATH\nenvironment variable or /etc/ld.so.conf path list.\n\n"
 }

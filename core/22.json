@@ -1,25 +1,10 @@
 {
-  "id": 22,
-  "created_at": "2015-10-17",
-  "updated_at": "2016-04-29",
-  "title": "Multiple Content Injection Vulnerabilities",
-  "author": {
-    "name": "Adam Baldwin",
-    "website": null,
-    "username": null
-  },
-  "module_name": "marked",
-  "publish_date": "2014-01-31",
-  "cves": [
-    "CVE-2014-1850",
-    "CVE-2014-3743"
+  "cve": [
+    "CVE-2016-2107"
   ],
-  "vulnerable_versions": "<=0.3.0",
-  "patched_versions": ">=0.3.1",
-  "overview": "Marked comes with an option to sanitize user output to help protect against content injection attacks.\n\n```sanitize: true```\n\nEven if this option is set, marked is vulnerable to content injection in multiple locations if untrusted user input is allowed to be provided into marked and that output is passed to the browser.\n\nInjection is possible in two locations\n\n- gfm codeblocks (language)\n- javascript url's",
-  "recommendation": "- Upgrade to version 0.3.1 or later",
-  "references": null,
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
-  "cvss_score": 6.5,
-  "coordinating_vendor": "^Lift Security"
+  "vulnerable": "4.x || 5.x || 6.x",
+  "patched": "^4.4.4 || ^5.11.1 || ^6.1.0",
+  "ref": "https://nodejs.org/en/blog/vulnerability/openssl-may-2016/#cve-2016-2107-padding-oracle-in-aes-ni-cbc-mac-check",
+  "description": "Padding oracle in AES-NI CBC MAC check",
+  "overview": "A man-in-the-middle (MITM) attacker may be able to execute a padding oracle\nattack to decrypt traffic when a connection uses an AES-CBC cipher and the\nserver runs on an Intel CPU supporting AES-NI. This is a common configuration\nfor TLS servers.\n\nThe OpenSSL project has labelled this vulnerability high severity.\n\n"
 }

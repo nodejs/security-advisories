@@ -1,26 +1,9 @@
 {
-  "id": 47,
-  "created_at": "2015-10-24",
-  "updated_at": "2016-04-20",
-  "title": "Regular Expression Denial of Service",
-  "author": {
-    "name": "Adam Baldwin",
-    "website": null,
-    "username": null
-  },
-  "module_name": "bleach",
-  "publish_date": "2015-10-24",
-  "cves": [
-    "CVE-2014-8881"
+  "cve": [
+    "CVE-2018-7159"
   ],
-  "vulnerable_versions": "<=99.999.99999",
-  "patched_versions": "<0.0.0",
-  "overview": "bleach 3.0 and earlier is vulnerable to regular expression denial of service (ReDoS) when certain types of input is passed into the sanitize function.\n\n\"The Regular expression Denial of Service (ReDoS) is a Denial of Service attack, that exploits the fact that most Regular Expression implementations may reach extreme situations that cause them to work very slowly (exponentially related to input size). An attacker can then cause a program using a Regular Expression to enter these extreme situations and then hang for a very long time.\" [1]",
-  "recommendation": "There is currently no fix available.",
-  "references": [
-    "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS"
-  ],
-  "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
-  "cvss_score": 5.3,
-  "coordinating_vendor": "^Lift Security"
+  "vulnerable": "^4.0.0 || ^6.0.0 || ^8.0.0 || ^9.0.0",
+  "patched": "^4.9.0 || ^6.14.0 || ^8.11.0 || ^9.10.0",
+  "ref": "https://nodejs.org/en/blog/vulnerability/march-2018-security-releases/",
+  "overview": "The HTTP parser in all current versions of Node.js ignores spaces in the `Content-Length` header, allowing input such as `Content-Length: 1 2` to be interpreted as having a value of `12`. The HTTP specification does not allow for spaces in the `Content-Length` value and the Node.js HTTP parser has been brought into line on this particular difference. The security risk of this flaw to Node.js users is considered to be VERY LOW as it is difficult, and may be impossible, to craft an attack that makes use of this flaw in a way that could not already be achieved by supplying an incorrect value for `Content-Length`. Vulnerabilities may exist in user-code that make incorrect assumptions about the potential accuracy of this value compared to the actual length of the data supplied. Node.js users crafting lower-level HTTP utilities are advised to re-check the length of any input supplied after parsing is complete."
 }
