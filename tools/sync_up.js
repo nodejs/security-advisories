@@ -4,6 +4,7 @@ const path = require('path');
 
 const SWG_ROOT = path.join(__dirname, '..', 'node_modules', 'security-wg', 'vuln');
 const NPM_TARGET_ROOT = path.join(__dirname, '..', 'ecosystem');
+const CORE_TARGET_ROOT = path.join(__dirname, '..', 'core');
 
 // collect and set up ecosystem reports
 fs.readdirSync(path.join(SWG_ROOT, 'npm'))
@@ -21,5 +22,18 @@ fs.readdirSync(path.join(SWG_ROOT, 'npm'))
             fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
         }
     });
+
+// same for core vulns
+fs.readdirSync(path.join(SWG_ROOT, 'core'))
+    .forEach((vulnname) => {
+
+        const rawContent = fs.readFileSync(path.join(SWG_ROOT, 'core', vulnname));
+
+        const targetPath = CORE_TARGET_ROOT;
+        if (!fs.existsSync(path.join(targetPath, vulnname))) {
+            fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
+        }
+    });
+
 
 
