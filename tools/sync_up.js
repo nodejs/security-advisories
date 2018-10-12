@@ -18,9 +18,7 @@ fs.readdirSync(path.join(SWG_ROOT, 'npm'))
         if(!fs.existsSync(targetPath)) {
             fs.mkdirSync(targetPath);
         }
-        if (!fs.existsSync(path.join(targetPath, vulnname))) {
-            fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
-        }
+        fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
     });
 
 // same for core vulns
@@ -30,9 +28,7 @@ fs.readdirSync(path.join(SWG_ROOT, 'core'))
         const rawContent = fs.readFileSync(path.join(SWG_ROOT, 'core', vulnname));
 
         const targetPath = CORE_TARGET_ROOT;
-        if (!fs.existsSync(path.join(targetPath, vulnname))) {
-            fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
-        }
+        fs.writeFileSync(path.join(targetPath, vulnname), rawContent);
     });
 
 
