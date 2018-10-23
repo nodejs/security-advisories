@@ -7,7 +7,7 @@ const NPM_TARGET_ROOT = path.join(__dirname, '..', 'ecosystem');
 const CORE_TARGET_ROOT = path.join(__dirname, '..', 'core');
 
 // collect and set up ecosystem reports
-const npmPath = path.join(SWG_ROOT_SRC, 'npm')
+const npmPath = path.join(SWG_ROOT_SRC, 'npm');
 fs.readdirSync(npmPath).forEach((vulnname) => {
 
         const rawContent = fs.readFileSync(path.join(npmPath, vulnname));
