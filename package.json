@@ -1,0 +1,22 @@
+{
+  "name": "security-advisories",
+  "version": "1.0.0",
+  "description": "Security advisories for Node.js and ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodejs/security-advisories.git"
+  },
+  "author": "Node.js Security Working Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodejs/security-advisories/issues"
+  },
+  "homepage": "https://github.com/nodejs/security-advisories#readme",
+  "dependencies": {
+    "security-wg": "git+ssh://git@github.com/nodejs/security-wg.git"
+  }
+}
