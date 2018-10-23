@@ -18,6 +18,6 @@
   "homepage": "https://github.com/nodejs/security-advisories#readme",
   "dependencies": {
     "recursive-readdir": "^2.2.2",
-    "security-wg": "git+ssh://git@github.com/nodejs/security-wg.git"
+    "security-wg": "git+https://git@github.com/nodejs/security-wg.git"
   }
 }
