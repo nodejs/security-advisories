@@ -1,6 +1,15 @@
 language: node_js
-
 node_js:
-- "8.9.0"
-
+  - "8.9.0"
 sudo: false
+install:
+  - npm install
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash ./travis/sync.sh
+  on:
+    branch: master
+env:
+  global:
+    secure: "UzwMVKJMbwfgQh23q7xKVi36lha9hsl5cwpI55Yzta9yS7udyFX2XcIxbF1Wjy7wFQTP9a6m0VEHyrV4ZEjg8VNvvqDFcKeUxJ7DXkD+AXyH4WYSXLhJ0cYoVxjEz3erv1Y0vUoIdUEt15yf18qARHrTG5QtQNIeGLyWhrMYh5CPcCq58zNqunOPK1XWk0fyFxgEuH6FWGgbdV1H94sCQsqMnGf3RbL7gx8eDjDg2l9h7ka37gdLZSLFCxSiA3JiGZHSFWpt2+QJhck8L4BQfIWvlSRdffEHVvCN4mtw0dzO85nsSWcvxko8dvca1d9jO2Q3OTScBdhwKwUa2W/CT7n/VFBamPBG2TTJ2dAUfLxYEf8BXJxe9hff9Cnl3ng6XkkqYF4ByFhxqavGSpxMggOre6p7qQSTGNrHUCGqUTwXp7RwpBfb2ntryPwFH7yaw7hnALXq32SLGzfcV2m/9a9Av2niDIFu5t7Zs1Y0/gOt+MnirOIju49scSD3dBQDSTvIjxwBDvQvlLEm22+DU0f5EZYroEdLkLlHiHOu2tOYHz3rTZrCxhaLQVPYwVCq3RcHXgLqSXK2OGunBZ6nDaqy/LJYO2sgbcN8Qqkx3j7P6QWPgBlWT47czOUY5vibs/a72IKjJzdsgyG+ebVprO3059tkB+jHSltwBkSlCgg="
