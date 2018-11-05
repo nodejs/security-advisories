@@ -9,7 +9,7 @@ setup_git_user(){
 set_git_remote(){
     git remote -v
     git remote remove origin
-    git remote add origin https://travis:${GH_TOKEN}@github.com/waveywaves/security-advisories.git 
+    git remote add origin https://travis:${GH_TOKEN}@github.com/nodejs/security-advisories.git 
 }
 
 sync_files(){
