@@ -16,6 +16,10 @@ sync_files(){
     node tools/sync_up.js
 }
 
+write_indices(){
+    node tools/write_index.js
+}
+
 commit_vuln_db(){
     git checkout master
     git add ecosystem
@@ -30,5 +34,6 @@ push_changes(){
 setup_git_user
 set_git_remote
 sync_files
+write_indices
 commit_vuln_db
 push_changes
