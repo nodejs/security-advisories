@@ -44,7 +44,7 @@ const createVulnObject = function(identifier, json) {
 }
 
 const writeIndex = function(data, writeDir, filename) {
-  fs.writeFileSync(writeDir + filename + '.json', JSON.stringify(data))
+  fs.writeFileSync(writeDir + filename + '.json', JSON.stringify(data, null, 2))
 }
 
 module.exports = createIndex
