@@ -14,8 +14,8 @@ const createIndex = function (vulnDirectoryPath, writeDirectoryPath, filename) {
 // Do the work of reading directories + subdirectories.
 const getVulnDirectoryContents = function (entries, vulnDir) {
   // if the first entry's value contains `'.json'` we can assume that all entries are files. Otherwise they're directories.
-  const entriesAreFiles = entries[0].includes('.json')
-  
+  const entriesAreFiles = directoryContainsFiles(vulnDir + entries[0])
+
   if (entriesAreFiles) { // If the entries in the directory we're looking at are files, we can go ahead and parse them as files immediately.
     console.log(`Files detected. Reading their contents and writing them to ${vulnDir} as directed.`)
 
@@ -51,6 +51,19 @@ const createVulnObject = function(identifier, json) {
 // Function that we can use to write the JSON object out once we're done building it, given that we know where we want to write it and what we want to name it.
 const writeIndex = function(data, writeDir, filename) {
   fs.writeFileSync(writeDir + filename + '.json', JSON.stringify(data, null, 2) + '\n')
+}
+
+// Function that we can use to check if a directory contains files or subdirectories using the Node.js fs.Stat API
+const directoryContainsFiles = function(entries) {
+  const check = fs.statSync(entries)
+
+  let entryIsADirectory = check.isDirectory()
+
+  if(entryIsADirectory === false) {
+    return true // directory does indeed contain files
+  } else {
+    return false // directory contains more directories
+  }
 }
 
 module.exports = createIndex
