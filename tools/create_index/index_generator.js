@@ -16,7 +16,7 @@ const getVulnDirectoryContents = function (entries, vulnDir) {
   // if the first entry's value contains `'.json'` we can assume that all entries are files. Otherwise they're directories.
   const entriesAreFiles = entries[0].includes('.json')
   
-  if (entriesAreFiles === true) { // If the entries in the directory we're looking at are files, we can go ahead and parse them as files immediately.
+  if (entriesAreFiles) { // If the entries in the directory we're looking at are files, we can go ahead and parse them as files immediately.
     console.log(`Files detected. Reading their contents and writing them to ${vulnDir} as directed.`)
 
     for(entry of entries) { // Loop over each file, getting the filename and reading the contents and passing that information to createVulnObject()
@@ -26,7 +26,7 @@ const getVulnDirectoryContents = function (entries, vulnDir) {
 
       createVulnObject(filename, data)
     }
-  } else if (entriesAreFiles === false) { // If the entries in the directory we're looking at are themselves directories, we need to go deeper and read the contents of each directory
+  } else { // If the entries in the directory we're looking at are themselves directories, we need to go deeper and read the contents of each directory
     console.log(`Directories rather than files detected. Reading directory contents and writing them to ${vulnDir} as directed.`)
 
     for(var subdirectory in entries){ // Loop over all the directories in the directory that was passed to the function.
