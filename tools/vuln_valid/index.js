@@ -17,7 +17,7 @@ const coreModel = joi.object().keys({
     author: joi.string().optional(),
     publish_date: joi.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().isoDate(),
     type: joi.string().optional(),
-    cvss_score: joi.string().optional(),
+    cvss_score: joi.number().optional(),
     cvss: joi.string().optional(),
     reported_by: joi.string().optional()
 });
@@ -27,7 +27,6 @@ const npmModel = joi.object().keys({
     cves: joi.array().items(joi.string().regex(/CVE-\d{4}-\d+/)).required(),
     created_at: joi.string().regex(/^\d{4}-\d{2}-\d{2}$/).required().isoDate(),
     updated_at: joi.string().regex(/^\d{4}-\d{2}-\d{2}$/).required().isoDate(),
-    title: joi.string().required(),
     title: joi.string().max(150).regex(/^[^\n]+$/).required(),
     author: joi.object().keys(
         {
